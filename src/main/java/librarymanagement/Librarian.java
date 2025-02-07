@@ -21,6 +21,11 @@ public class Librarian extends User {
         return true;
     }
 
+    @Override
+    public void returnBook() {
+
+    }
+
     public void addNewBook(Book book){
         System.out.println("Book added");
     }
