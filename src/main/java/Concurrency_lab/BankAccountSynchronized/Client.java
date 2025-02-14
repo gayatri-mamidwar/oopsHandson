@@ -5,7 +5,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 //THIS problem is same like adder subtractor......
-//not getting final value as zero.
+//not getting final value as zero. bcz of Runnable. Use callable for waiting
 
 public class Client {
     public static void main(String[] args) throws InterruptedException {
