@@ -17,15 +17,19 @@ public class BankAccount {
         synchronized (lock) {
             if (amount > 0) {
                 balance += amount;
+                System.out.println("Deposited: " + amount + ", New Balance: " + balance);
             }
         }
     }
 
     public synchronized void withdraw(Long amount){
-//        synchronized (lock) {
-            if (balance >= amount && balance > 0) {
+        synchronized (lock) {
+            if (amount > 0 && balance >= amount) {
                 balance -= amount;
+                System.out.println("Withdrawn: " + amount + ", New Balance: " + balance);
+            } else {
+                System.out.println("Insufficient balance for withdrawal: " + amount);
             }
-//        }
+        }
     }
 }

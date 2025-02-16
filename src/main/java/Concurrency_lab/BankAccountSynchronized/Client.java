@@ -11,7 +11,7 @@ public class Client {
     public static void main(String[] args) throws InterruptedException {
 
         BankAccount bankAccount = new BankAccount();
-        ExecutorService es = Executors.newFixedThreadPool(5);
+        ExecutorService es = Executors.newFixedThreadPool(10);
 
 
         //create 2 tasks i.e deposit & withdraw which will run seperately
@@ -27,8 +27,8 @@ public class Client {
             }
         };
 
-        // Simulate multiple depositors and withdrawers
-        for (int i = 0; i < 10; i++) {
+        // Submit tasks to the executor service
+        for (int i = 0; i < 5; i++) {                  // 5 depositors and 5 withdrawers
             es.submit(depositTask);
             es.submit(withdrawTask);
         }
@@ -37,7 +37,21 @@ public class Client {
                                             //basically it doesn't except any new task
                                             //but waits for already assigned task to get over
 
-        es.awaitTermination(2, TimeUnit.MINUTES);           //Not waiting at this line
-        System.out.println("Final balance : " + bankAccount.getBalance());
+        long startTime = System.nanoTime();
+
+        // Submit tasks and wait for completion
+        es.shutdown();
+        if (!es.awaitTermination(2, TimeUnit.MINUTES)) {
+            System.out.println("Some tasks are still running...");
+        }
+
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime) / 1_000_000; // Convert to milliseconds
+        System.out.println("Execution time: " + duration + " ms");
+
+
+        // Print final balance
+        System.out.println("Final balance: " + bankAccount.getBalance());
+
     }
 }
