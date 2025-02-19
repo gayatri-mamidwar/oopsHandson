@@ -17,9 +17,31 @@ public class Client {
             System.out.println("Before sort : " + item.getName());
         }
 
+        // There is no default ordering for custom classes
+        // Is it possible to give default ordering : Yes ! How ? Comparable
+        // items.get(0).compareTo(items.get(1));
         Collections.sort(items);
+
         for(Item item : items){
             System.out.println("After sort : " + item.getName());
         }
+
+        /* Inventory : Multiple Items
+          General Inventory
+          Clothing Inventory
+          Book Inventory
+         */
+
+
+        Inventory<Electronics> electronicsInventory = new Inventory<>();
+        electronicsInventory.add(new Electronics("E1", "Laptop" ,  999.99 ,5, 24));
+        electronicsInventory.add(new Electronics("E2", "Laptop",  999.99 ,5, 24));
+        electronicsInventory.add(new Electronics("E3", "Mobile", 99.99, 5, 24));
+
+        Inventory<Book> bookInventory = new Inventory<>();
+        Inventory<Clothing> clothingInventory = new Inventory<>();
+        Inventory<Item> itemInventory = new Inventory<>();
+
+
     }
 }
