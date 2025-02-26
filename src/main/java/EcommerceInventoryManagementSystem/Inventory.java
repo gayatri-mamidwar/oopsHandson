@@ -11,9 +11,15 @@ public class Inventory<T extends Item> {
         items = new HashMap<>();
     }
 
-    public void add(T item){
+    public void add(T item) throws InvalidQuantityException {
         if(item.getQuantity() <= 0){
+
+            //InvalidQuantityException is Checked (extending from Exception) So,need to use with method signature
             throw new InvalidQuantityException("Quantity must be greater than 0");
+        }
+
+        else if(items.containsKey(item.getId())){
+            throw new DuplicateItemException("Item with the same ID is already present in the inventory");
         }
         items.put(item.getId(), item);
     }
@@ -27,6 +33,9 @@ public class Inventory<T extends Item> {
     }
 
     public T retrieve(String itemId){
+        if(!items.containsKey(itemId)){
+            throw new ItemNotFoundException("Item ID '" + itemId + "' does not exist in the inventory.");
+        }
         return items.get(itemId);
     }
 
