@@ -5,7 +5,7 @@ import java.util.*;
 import static java.util.Arrays.stream;
 
 public class Client {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidQuantityException {
 
         List<Item> items = new ArrayList<>();
         items.add(new Electronics("E1", "Laptop", 999.99, 5, 24));
