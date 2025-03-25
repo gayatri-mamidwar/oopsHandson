@@ -15,8 +15,9 @@ public class Student {
         this.name = student.name;
     }
 
+    //it will create copy of student using deep copy
     public Student copy(){
-        Student student = new Student(this);
+        Student student = new Student(this);            //new addr is assigned for copied student
         return student;
     }
 
