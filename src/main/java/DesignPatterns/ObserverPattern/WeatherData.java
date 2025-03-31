@@ -3,7 +3,7 @@ package DesignPatterns.ObserverPattern;
 import java.util.ArrayList;
 import java.util.List;
 
-//WeatherData is subject
+//WeatherData is subject. it will act as publisher
 public class WeatherData implements Subject {
 
     private float humidity;

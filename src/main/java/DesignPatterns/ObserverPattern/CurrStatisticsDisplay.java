@@ -1,6 +1,6 @@
 package DesignPatterns.ObserverPattern;
 
-//CurrStatisticsDisplay is observer
+//CurrStatisticsDisplay is observer.
 public class CurrStatisticsDisplay implements Display, Observer {
 
     private float temp;
