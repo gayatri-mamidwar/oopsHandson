@@ -5,7 +5,16 @@ public class ParkingSlot extends  BaseClass {
     private String slotNumber;
     private ParkingSlotStatus parkingSlotStatus;
     //Only 1 type of vehicle on every slot
-    private VehicleType vehicleType;
+    private VehicleType allowedVehicleType;
+    private ParkingFloor parkingFloor;
+
+    public ParkingFloor getParkingFloor() {
+        return parkingFloor;
+    }
+
+    public void setParkingFloor(ParkingFloor parkingFloor) {
+        this.parkingFloor = parkingFloor;
+    }
 
     public String getSlotNumber() {
         return slotNumber;
@@ -23,11 +32,11 @@ public class ParkingSlot extends  BaseClass {
         this.parkingSlotStatus = parkingSlotStatus;
     }
 
-    public VehicleType getVehicleType() {
-        return vehicleType;
+    public VehicleType getAllowedVehicleType() {
+        return allowedVehicleType;
     }
 
-    public void setVehicleType(VehicleType vehicleType) {
-        this.vehicleType = vehicleType;
+    public void setAllowedVehicleType(VehicleType allowedVehicleType) {
+        this.allowedVehicleType = allowedVehicleType;
     }
 }

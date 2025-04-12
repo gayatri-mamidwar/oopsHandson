@@ -1,9 +1,21 @@
-package LLDCaseStudy.ParkingLot.models;
+package LLDCaseStudy.ParkingLot.dtos;
 
-public class Vehicle extends BaseClass {
+import LLDCaseStudy.ParkingLot.models.VehicleType;
+
+public class IssueTicketRequestDto {
     private String licensePlate;
     private String ownerName;
     private VehicleType vehicleType;
+    private int gateId;
+    private int parkingLotId;
+
+    public int getParkingLotId() {
+        return parkingLotId;
+    }
+
+    public void setParkingLotId(int parkingLotId) {
+        this.parkingLotId = parkingLotId;
+    }
 
     public String getLicensePlate() {
         return licensePlate;
@@ -27,5 +39,13 @@ public class Vehicle extends BaseClass {
 
     public void setVehicleType(VehicleType vehicleType) {
         this.vehicleType = vehicleType;
+    }
+
+    public int getGateId() {
+        return gateId;
+    }
+
+    public void setGateId(int gateId) {
+        this.gateId = gateId;
     }
 }

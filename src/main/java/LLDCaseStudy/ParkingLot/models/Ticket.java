@@ -49,4 +49,15 @@ public class Ticket extends  BaseClass{
     public void setGate(ParkingGate gate) {
         this.gate = gate;
     }
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "entryTime=" + entryTime +
+                ", vehicle=" + vehicle +
+                ", operator=" + operator +
+                ", parkingSlot=" + parkingSlot +
+                ", gate=" + gate +
+                '}';
+    }
 }

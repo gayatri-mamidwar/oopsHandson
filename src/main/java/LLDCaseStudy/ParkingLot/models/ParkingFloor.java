@@ -3,14 +3,14 @@ package LLDCaseStudy.ParkingLot.models;
 import java.util.List;
 
 public class ParkingFloor extends BaseClass {
-    private  int number;
+    private  String number;
     private List<ParkingSlot> slots;
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
